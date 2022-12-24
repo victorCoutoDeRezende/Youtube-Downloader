@@ -5,14 +5,15 @@ def try_download(video):
         video.download()
     except:
         print("An error occurred in your download")
+        
     print("The download was successful!")
 
-def download_Higher(link):
+def download_higher(link):
     video = YouTube(link)
     video = video.streams.get_highest_resolution()
     try_download(video)
 
-def download_Lowest(link):
+def download_lowest(link):
     video = YouTube(link)
     video = video.streams.get_lowest_resolution()
     try_download(video)
@@ -25,9 +26,9 @@ def download_audio(link):
 def download_selection():
     options = input("How do you want to make your download?\n[1]Highest Resolution - [2]Lowest Resolution - [3]Only Audio\n->")
     if options == "1":
-        download_Higher(link)
+        download_higher(link)
     elif options == "2":
-        download_Lowest(link)
+        download_lowest(link)
     elif options == "3":
         download_audio(link)
     else:
